@@ -31,7 +31,8 @@ exports.listUserFormsByUserHash = function(req, res) {
                 res.json(userForms)
             else
                 res.status(400).send({
-                    error: "Requested user forms with hash id [" + req.params.userHash + "] not found. Try submiting new form."
+                    error:  'failed',
+                    message: "No user forms found with hash id [" + req.params.userHash + "] Try submiting new form."
             })
         }
     })
@@ -50,13 +51,17 @@ exports.listUserFormsByUserHash_post = function(req, res) {
         });
     UserData.find({ userHash: req.body.userHash }, function(err, userForms) {
         if (err) {
-            res.status(400).send(err)
+            res.status(400).send({
+                error:  'failed',
+                message: err,
+            });
         } else {
             if (userForms.length != 0) 
                 res.json(userForms)
             else
                 res.status(400).send({
-                    error: "Requested user forms with hash id [" + req.body.userHash + "] not found. Try submiting new form."
+                    error:  'failed',
+                    message: "Requested user forms with hash id [" + req.body.userHash + "] not found. Try submiting new form."
             })
         }
     })
@@ -151,7 +156,10 @@ exports.create_a_user = async function(req, res) {
     var new_user = new UserData(req.body);
     new_user.save(function(err, user) {
         if (err) {
-            res.status(400).send(err.errors)
+            res.status(400).send({
+                error:  'failed',
+                message: err,
+            });
         } else {
             res.json({
                 message: "User created successfully.",
