@@ -4,7 +4,8 @@
   "description": "This is the backend for Add user to database app.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "genApi":"apidoc -i api/ -o public/"
   },
   "author": "",
   "license": "ISC",

@@ -185,7 +185,7 @@ define({ "api": [
     "name": "GetV1JsonUserUserhash",
     "sampleRequest": [
       {
-        "url": "http://localhost:8099/v1/json/user/:userHash"
+        "url": "https://user-form-backend.herokuapp.com/v1/json/user/:userHash"
       }
     ]
   },
@@ -280,7 +280,7 @@ define({ "api": [
     "name": "PostV1JsonUser",
     "sampleRequest": [
       {
-        "url": "http://localhost:8099/v1/json/user/"
+        "url": "https://user-form-backend.herokuapp.com/v1/json/user/"
       }
     ]
   }
