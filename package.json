@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "genApi":"apidoc -i api/ -o public/"
+    "genApi": "apidoc -i api/ -o public/"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +16,8 @@
     "express-rate-limit": "^5.1.1",
     "fingerprintjs2": "^2.1.0",
     "mongodb": "^3.5.5",
-    "mongoose": "^5.9.7"
+    "mongoose": "^5.9.7",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

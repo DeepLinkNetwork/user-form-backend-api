@@ -9,7 +9,7 @@
       "examples": [
         {
           "title": "x-www-form-urlencoded Input",
-          "content": "{\n   \"name\": \"Test User\",\n   \"dob\": \"19-03-1998\",\n   \"email\": \"dchoudhary@gmail.com\",\n   \"contact\": 9876543210,\n   \"userHash\": \"d476d512eb1bec563c134871156044bf\"\n   \"submitDate\": \"Sun Apr 12 1988 02:16:44 GMT+0530 (India Standard Time)\"\n   \"x64signature\": \"47b26d3e482d36f6d6b6388188c266e3\"\n}",
+          "content": "{\n   \"name\": \"Test User\",\n   \"dob\": \"19-03-1998\",\n   \"email\": \"dchoudhary@gmail.com\",\n   \"contact\": 9876543210,\n   \"userHash\": \"d476d512eb1bec563c134871156044bf\"\n   \"submitDate\": \"Sun Apr 12 1988 02:16:44 GMT+0530 (India Standard Time)\"\n   \"x64signature\": \"47b26d3e482d36f6d6b6388188c266e3\"\n   \"curlRequest\": true \n}",
           "type": "json"
         }
       ]
@@ -79,6 +79,13 @@
             "optional": false,
             "field": "x64signature",
             "description": "<p>User fingerprint client signature</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "curlRequest",
+            "description": "<p>When making request using curl</p>"
           }
         ]
       },

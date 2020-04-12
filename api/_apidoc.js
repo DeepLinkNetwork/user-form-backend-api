@@ -80,6 +80,7 @@
  *     "userHash": "d476d512eb1bec563c134871156044bf"
  *     "submitDate": "Sun Apr 12 1988 02:16:44 GMT+0530 (India Standard Time)"
  *     "x64signature": "47b26d3e482d36f6d6b6388188c266e3"
+ *     "curlRequest": true 
  *  }
  *
  * @apiSuccess {String} message Success message
@@ -91,6 +92,7 @@
  * @apiSuccess {String} userHash User browser fingerprint
  * @apiSuccess {String} submitDate User form submit date
  * @apiSuccess {String} x64signature User fingerprint client signature
+ * @apiSuccess {Boolean} curlRequest When making request using curl
  * @apiSuccessExample {json} Success
  * HTTP/1.1 200 OK
  * X-Powered-By: Express
