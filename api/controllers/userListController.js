@@ -5,6 +5,15 @@ const mongoose = require("mongoose");
 const Fingerprint2 = require('fingerprintjs2');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.SENDER_EMAIL,
+      pass: process.env.SENDER_PASS
+    }
+  });
 
 const UserData = mongoose.model("UserData",UserModel);
 
@@ -137,6 +146,8 @@ exports.create_a_user = async function(req, res) {
         });
     }
     
+    sendEmail(req.body.email,req.body);
+
     var new_user = new UserData(req.body);
     new_user.save(function(err, user) {
         if (err) {
@@ -148,4 +159,14 @@ exports.create_a_user = async function(req, res) {
             });
         }
     });
+}
+
+const sendEmail = function(email,data) {
+    let mailOptions = {
+        from: process.env.SENDER_EMAIL,
+        to: email,
+        subject: 'User Form Submitted Successfully',
+        html: `Hi ${data.name},<br><br>You have successfully submiited your form.<br><br>Regards,<br>Heroku User App`
+      };
+      transporter.sendMail(mailOptions);
 }
